@@ -4,7 +4,7 @@
  * Description: Shortcode to display posts inside page content for ClassicPress.
  * Version:     1.0.0
  * Requires PHP: 7.4
- * Requires CP:  2.4
+ * Requires CP:  1.4
  * Author:      NewsTime by Tradesouthwest
  * License:     GPLv2 or later
  * Text Domain: newstime
@@ -20,24 +20,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-function newstime_display_posts_styles() {
-
-	 wp_enqueue_style( 'onlist-style',   plugin_dir_url(__FILE__)
-                      . '/css/newstime-display-posts-style.css',array(), 
-					  '1.0', false );
+function newstime_display_posts_styles() 
+{
+	 wp_enqueue_style( 'newstime-display-pposts-style',   plugin_dir_url(__FILE__)
+                      . 'css/newstime-display-posts.css', array(), 
+					  '1.0.0', false );
 }
+add_action( 'wp_enqueue_scripts', 'newstime_display_posts_styles' );
+
 //load language scripts
 function newstime_display_posts_load_text_domain()
 {
     load_plugin_textdomain( 'newstime-display-posts', false,
                             basename( dirname( __FILE__ ) ) . '/languages' );
 }
+add_action('plugins_loaded', 'newstime_display_posts_load_text_domain' );
 
 //activate plugin
 function newstime_display_posts_plugin_reactivate()
 {
         return false;
 }
+
 //deactivation settings
 function newstime_display_posts_plugin_deactivate()
 {
