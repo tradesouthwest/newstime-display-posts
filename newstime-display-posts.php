@@ -126,5 +126,4 @@ function newstime_posts_shortcode( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode( 'newstime_posts', 'newstime_posts_shortcode' );
-
 ?>
