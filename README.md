@@ -20,10 +20,10 @@ Notice we use an offset of 5 since Newstime theme already display the first four
 # Features
 
 * Display posts on page without widget.
-* Add attributes for post-per-page and offset lus category
+* Add attributes for post-per-page and offset. Plus choose category or leave as `any` to show all cats.
 
 # Support
-Use https://github.com/tradesouthwest/newstime-display-posts/issues to post your issues with this plugin.
+Use https://github.com/tradesouthwest/newstime-display-posts/issues to post your issues with this plugin. Demo at https://themes.classicpress-themes.com/newstime/
 
 # Change Log
 - 1.0.0

@@ -1,14 +1,23 @@
 /* Shortcode Grid Layout */
 .newstime-shortcode-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-	gap: 1.5rem;
-	margin: 1.5rem 0;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    gap: 1.5rem;
+    margin: 1.5rem auto; /* Centers the container block itself */
+    justify-content: center; /* Evenly centers the grid columns */
+    box-sizing: border-box;
 }
 
 .shortcode-post-card {
 	display: flex;
 	flex-direction: column;
+	height: 240px;
+	width: 100%;
+    max-width: 280px; /* Constrains card so justify-items can align it */
+    border: 4px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    justify-content: end;
 }
 
 .shortcode-card-image img {
