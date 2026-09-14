@@ -37,7 +37,7 @@ function newstime_display_posts_load_text_domain()
 add_action('plugins_loaded', 'newstime_display_posts_load_text_domain' );
 
 //activate plugin
-function newstime_display_posts_plugin_reactivate()
+function newstime_display_posts_plugin_activate()
 {
         return false;
 }
