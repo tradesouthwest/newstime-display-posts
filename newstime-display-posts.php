@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: NewsTime Display Posts Shortcode
- * Description: Shortcode to display posts inside page content for ClassicPress.
+ * Description: Shortcode to display posts inside page content for ClassicPress. `[newstime_posts posts_per_page="4" offset="5" category=""]`
  * Version:     1.0.0
  * Requires PHP: 7.4
  * Requires CP:  1.4
  * Author:      NewsTime by Tradesouthwest
  * License:     GPLv2 or later
- * Text Domain: newstime
+ * Text Domain: newstime-display-posts
  * -----------------------------------------------------------------------------
  * This is free software released under the terms of the General Public License,
  * version 2, or later. It is distributed WITHOUT ANY WARRANTY; without even the
@@ -20,42 +20,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-function newstime_display_posts_styles() 
-{
-	 wp_enqueue_style( 'newstime-display-pposts-style',   plugin_dir_url(__FILE__)
-                      . 'css/newstime-display-posts.css', array(), 
-					  '1.0.0', false );
+function newstime_display_posts_styles() {
+	wp_enqueue_style(
+		'newstime-display-posts-style',
+		plugin_dir_url(__FILE__) . '/css/newstime-display-posts.css',
+		array(),
+		'1.0.0',
+		'all'
+	);
 }
 add_action( 'wp_enqueue_scripts', 'newstime_display_posts_styles' );
 
-//load language scripts
-function newstime_display_posts_load_text_domain()
-{
-    load_plugin_textdomain( 'newstime-display-posts', false,
-                            basename( dirname( __FILE__ ) ) . '/languages' );
+// Load language scripts
+function newstime_display_posts_load_text_domain() {
+	load_plugin_textdomain(
+		'newstime-display-posts',
+		false,
+		basename( dirname( __FILE__ ) ) . '/languages'
+	);
 }
-add_action('plugins_loaded', 'newstime_display_posts_load_text_domain' );
-
-//activate plugin
-function newstime_display_posts_plugin_activate()
-{
-        return false;
-}
-
-//deactivation settings
-function newstime_display_posts_plugin_deactivate()
-{
-		return false;
-}
-    //ready, set, go
-    register_activation_hook(__FILE__,   'newstime_display_posts_plugin_activate');
-    register_deactivation_hook(__FILE__, 'newstime_display_posts_plugin_deactivate');
-
+add_action( 'plugins_loaded', 'newstime_display_posts_load_text_domain' );
 
 /**
  * Register [newstime_posts] Shortcode
  *
- * Usage: [newstime_posts posts_per_page="4" category="news"]
+ * Usage: [newstime_posts posts_per_page="4" offset="5" category="news"]
  *
  * @param array $atts Shortcode attributes.
  * @return string HTML output.
@@ -70,7 +59,7 @@ function newstime_posts_shortcode( $atts ) {
 			'order'          => 'DESC',
 		),
 		$atts,
-		'newstime_posts'
+		'newstime_posts' 
 	);
 
 	$query_args = array(
@@ -126,4 +115,3 @@ function newstime_posts_shortcode( $atts ) {
 	return ob_get_clean();
 }
 add_shortcode( 'newstime_posts', 'newstime_posts_shortcode' );
-?>

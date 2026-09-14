@@ -9,7 +9,7 @@ Shortcode to display posts inside page content for ClassicPress.
 - Author:       YourNameIdentity
 - Tags:         scheduling, booking, appointments, translation-ready
 - License:      GPL 3 (see LICENSE)
-- Text domain:  hello-plugin
+- Text domain:  newstime-display-posts
 
 ## Description
 
