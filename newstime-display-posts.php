@@ -6,6 +6,7 @@
  * Requires PHP: 7.4
  * Requires CP:  1.4
  * Author:      NewsTime by Tradesouthwest
+ * Demo at:     https://themes.classicpress-themes.com/newstime/
  * License:     GPLv2 or later
  * Text Domain: newstime-display-posts
  * -----------------------------------------------------------------------------
